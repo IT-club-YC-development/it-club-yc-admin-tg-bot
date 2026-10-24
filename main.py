@@ -8,6 +8,7 @@ from aiogram.enums import ParseMode
 from config import settings
 from database.connection import close_database, init_database
 from handlers.start import router as start_router
+from handlers.moderation import router as moderation_router
 
 
 async def main() -> None:
@@ -22,6 +23,7 @@ async def main() -> None:
     )
     dp = Dispatcher()
     dp.include_router(start_router)
+    dp.include_router(moderation_router)
 
     await init_database()
     try:
