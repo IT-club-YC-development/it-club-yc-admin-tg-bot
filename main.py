@@ -22,6 +22,7 @@ async def main() -> None:
     )
     dp = Dispatcher()
     dp.include_router(start_router)
+    dp.include_router(info_router)
 
     await init_database()
     try:
